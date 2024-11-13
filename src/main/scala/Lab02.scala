@@ -30,10 +30,11 @@ object Lab02 extends App {
 
     // Parte 3C
     // Rendere NEG generico
+    def negGeneric[X](predicate: X => Boolean): X => Boolean = (x: X) => !predicate(x)
     val isEmpty: String => Boolean = _ == ""
-    val isNotEmpty = neg(isEmpty)
+    val isNotEmpty = negGeneric(isEmpty)
 
-    println("Neg section:")
+    println("NegGeneric section:")
     println(isNotEmpty("foo")) // true
     println(isNotEmpty("")) // false
     println(isNotEmpty("foo") && !isNotEmpty("")) // true
